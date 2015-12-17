@@ -1,0 +1,14 @@
+cf cups mylogger -l syslog://logs3.papertrailapp.com:51203
+
+cf login -a https://api.corpdemo.fe.pivotal.io --skip-ssl-validation
+
+cf enable-feature-flag diego_docker
+
+docker-machine start default
+
+eval "$(docker-machine env default)"
+
+mvn clean package docker:build
+
+./push.sh
+
