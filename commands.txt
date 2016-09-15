@@ -1,13 +1,16 @@
+# some of these are not required, based on the target deployment
 cf cups mylogger -l syslog://logs3.papertrailapp.com:51203
 
 cf login -a https://api.corpdemo.fe.pivotal.io --skip-ssl-validation
 
 cf enable-feature-flag diego_docker
 
+#these are not needed with new docker for mac
 docker-machine start default
 
 eval "$(docker-machine env default)"
 
+#this will build the container based on the Dockerfile
 mvn clean package docker:build
 
 ./push.sh

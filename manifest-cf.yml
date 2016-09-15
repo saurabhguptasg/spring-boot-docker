@@ -1,0 +1,12 @@
+---
+applications:
+- name: spring-boot-simple
+  memory: 512M 
+  instances: 1
+  host: spring-boot-simple
+  buildpack: java_buildpack
+  path: ./target/spring-docker-0.0.1-SNAPSHOT.jar
+  env:
+    JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+
+

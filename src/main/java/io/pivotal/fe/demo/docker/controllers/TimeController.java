@@ -13,7 +13,7 @@ import java.util.Map;
  * @since 10/14/15.
  */
 @RestController
-@RequestMapping(value = "/time/**", produces = "application/json")
+@RequestMapping(value = "/", produces = "application/json")
 public class TimeController {
 
   @RequestMapping("/")
